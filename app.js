@@ -6,11 +6,14 @@ const diccionarioMorse = {
     '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----', ' ': '/'
 };
 
+
+
+
 const textoAMorse = (text) => {
     return text.toUpperCase().split('').map(char => diccionarioMorse[char] || '').join(' ');
 };
 
-const morseToText = (morse) => {
+const morseAText = (morse) => {
     const morseToTextMap = Object.entries(diccionarioMorse).reduce((acc, [key, value]) => {
         acc[value] = key;
         return acc;
@@ -25,8 +28,8 @@ function convert() {
 
     if (mode === 'textoAMorse') {
         resultado = textoAMorse(input);
-    } else if (mode === 'morseToText') {
-        resultado = morseToText(input);
+    } else if (mode === 'morseAText') {
+        resultado = morseAText(input);
     }
 
     document.getElementById("output").innerText = resultado;
